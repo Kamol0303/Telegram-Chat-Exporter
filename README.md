@@ -44,6 +44,11 @@ API_HASH=your_api_hash
 Create API credentials at <https://my.telegram.org>. Do not put these values
 in source code or commit `.env`.
 
+`API_ID` aynan **my.telegram.org/apps** sahifasidagi raqam bo‘lishi kerak.
+Bot tokeni, telefon raqami yoki boshqa uzun ID’ni `API_ID` sifatida kiritmang.
+Telegram API ID signed 32-bit integer diapazonida bo‘ladi
+(`1`–`2147483647`).
+
 ## Run
 
 ```bash
@@ -79,3 +84,9 @@ This tool is intended only for your own Telegram account and does not send
 exported messages to a third-party server. Use it only where you have the
 right to access and retain the data. Protect the generated session and
 exported files like private account data.
+
+## Troubleshooting
+
+If you see `struct.error: 'i' format requires ...`, check `API_ID` in `.env`.
+Replace it with the numeric API ID from <https://my.telegram.org/apps>, then
+run the program again. Never share your `API_HASH` or session file publicly.
