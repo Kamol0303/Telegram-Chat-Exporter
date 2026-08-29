@@ -94,8 +94,11 @@ def load_config() -> tuple[int, str]:
     except ValueError as exc:
         raise RuntimeError("API_ID faqat raqam bo‘lishi kerak.") from exc
 
-    if api_id <= 0:
-        raise RuntimeError("API_ID musbat raqam bo‘lishi kerak.")
+    if not 1 <= api_id <= 2_147_483_647:
+        raise RuntimeError(
+            "API_ID noto‘g‘ri diapazonda. my.telegram.org/apps saytidagi "
+            "API ID qiymatini kiriting; u 1 dan 2147483647 gacha bo‘lishi kerak."
+        )
     return api_id, api_hash
 
 
